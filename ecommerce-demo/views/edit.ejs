@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Product</title>
+  <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+  <main>
+    <h1>✏️ Edit Product</h1>
+
+    <div class="admin-container">
+      <form action="/admin/edit/<%= product.id %>" method="POST" enctype="multipart/form-data">
+        <input name="name" value="<%= product.name %>" placeholder="Product name" required>
+        <input name="price" type="number" value="<%= product.price %>" placeholder="Price" required>
+        <textarea name="description" placeholder="Product description"><%= product.description %></textarea>
+        
+        <% if(product.image){ %>
+          <div style="margin-bottom: 15px;">
+            <p style="margin-bottom: 10px;">Current Image:</p>
+            <img src="<%= product.image %>" alt="<%= product.name %>" style="max-width: 100px; border-radius: 4px;">
+          </div>
+        <% } %>
+        
+        <input type="file" name="image" accept="image/*">
+        <input type="hidden" name="image" value="<%= product.image %>">
+        
+        <button type="submit">✅ Update Product</button>
+      </form>
+
+      <div class="nav-links" style="margin-top: 30px; border-top: 1px solid #ecf0f1;">
+        <a href="/admin">← Back to Admin</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

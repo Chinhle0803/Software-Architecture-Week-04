@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= product.name %></title>
+  <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+  <main>
+    <div class="product-detail">
+      <h2><%= product.name %></h2>
+      
+      <% if(product.image){ %>
+        <img src="<%= product.image %>" alt="<%= product.name %>">
+      <% } else { %>
+        <div class="product-image" style="font-size: 5em; margin: 30px 0;">📦</div>
+      <% } %>
+      
+      <p class="product-description"><%= product.description %></p>
+      <p class="product-price">$<%= product.price %></p>
+      
+      <div class="nav-links" style="margin-top: 30px; border-top: 1px solid #ecf0f1;">
+        <a href="/">← Back to Products</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
